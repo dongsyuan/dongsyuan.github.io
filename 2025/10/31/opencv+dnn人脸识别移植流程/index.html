@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://codedongshi.top">
   <title>dongshi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="opencv+dnn人脸识别移植流程 1、确定交叉编译工具链，进入Qt工具的选项，在编译器中找到T113的gcc(交叉编译工具链）&#x2F;home&#x2F;zhiwan&#x2F;t113&#x2F;Tina-Linux&#x2F;prebuilt&#x2F;gcc&#x2F;linux-x86&#x2F;arm&#x2F;toolchain-sunxi-musl&#x2F;toolchai">
+  <meta name="description" content="title:opencv+dnn人脸识别移植流程date:2025-11-2 10:12:341、确定交叉编译工具链，进入Qt工具的选项，在编译器中找到T113的gcc(交叉编译工具链）&#x2F;home&#x2F;zhiwan&#x2F;t113&#x2F;Tina-Linux&#x2F;prebuilt&#x2F;gcc&#x2F;linux-x86&#x2F;arm&#x2F;toolc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="dongshi">
 <meta property="og:url" content="http://codedongshi.top/2025/10/31/opencv+dnn%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E7%A7%BB%E6%A4%8D%E6%B5%81%E7%A8%8B/index.html">
 <meta property="og:site_name" content="dongshi">
-<meta property="og:description" content="opencv+dnn人脸识别移植流程 1、确定交叉编译工具链，进入Qt工具的选项，在编译器中找到T113的gcc(交叉编译工具链）&#x2F;home&#x2F;zhiwan&#x2F;t113&#x2F;Tina-Linux&#x2F;prebuilt&#x2F;gcc&#x2F;linux-x86&#x2F;arm&#x2F;toolchain-sunxi-musl&#x2F;toolchai">
+<meta property="og:description" content="title:opencv+dnn人脸识别移植流程date:2025-11-2 10:12:341、确定交叉编译工具链，进入Qt工具的选项，在编译器中找到T113的gcc(交叉编译工具链）&#x2F;home&#x2F;zhiwan&#x2F;t113&#x2F;Tina-Linux&#x2F;prebuilt&#x2F;gcc&#x2F;linux-x86&#x2F;arm&#x2F;toolc">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="e:\T113%E7%AC%94%E8%AE%B0\%E4%B8%8A%E5%AE%98%E5%BF%97%E7%8E%A9%E6%B4%BEopencv%E7%A7%BB%E6%A4%8D%E6%B5%81%E7%A8%8B\1093307-20240705174122433-19096784.png">
 <meta property="article:published_time" content="2025-10-31T13:37:09.771Z">
-<meta property="article:modified_time" content="2025-10-31T13:53:14.314Z">
+<meta property="article:modified_time" content="2025-11-02T05:47:32.131Z">
 <meta property="article:author" content="Dong shi">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="e:\T113%E7%AC%94%E8%AE%B0\%E4%B8%8A%E5%AE%98%E5%BF%97%E7%8E%A9%E6%B4%BEopencv%E7%A7%BB%E6%A4%8D%E6%B5%81%E7%A8%8B\1093307-20240705174122433-19096784.png">
@@ -161,8 +161,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>opencv+dnn人脸识别移植流程</p>
-<p>1、确定交叉编译工具链，进入Qt工具的选项，在编译器中找到T113的gcc(交叉编译工具链）&#x2F;home&#x2F;zhiwan&#x2F;t113&#x2F;Tina-Linux&#x2F;prebuilt&#x2F;gcc&#x2F;linux-x86&#x2F;arm&#x2F;toolchain-sunxi-musl&#x2F;toolchain&#x2F;bin&#x2F;arm-openwrt-linux-muslgnueabi-gcc。</p>
+        <hr>
+<h2 id="title-opencv-dnn人脸识别移植流程date-2025-11-2-10-12-34"><a href="#title-opencv-dnn人脸识别移植流程date-2025-11-2-10-12-34" class="headerlink" title="title:opencv+dnn人脸识别移植流程date:2025-11-2 10:12:34"></a>title:opencv+dnn人脸识别移植流程<br>date:2025-11-2 10:12:34</h2><p>1、确定交叉编译工具链，进入Qt工具的选项，在编译器中找到T113的gcc(交叉编译工具链）&#x2F;home&#x2F;zhiwan&#x2F;t113&#x2F;Tina-Linux&#x2F;prebuilt&#x2F;gcc&#x2F;linux-x86&#x2F;arm&#x2F;toolchain-sunxi-musl&#x2F;toolchain&#x2F;bin&#x2F;arm-openwrt-linux-muslgnueabi-gcc。</p>
 <p>2、下载OpenCV源码及拓展库并解压，我用的是opencv4.12.0的，进入源码目录后新建build文件夹；</p>
 <p>​	编写.cmake文件，在其中放入gcc路径及其他相关内容；</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#.cmake文件</span><br><span class="line"># arm-toolchain.cmake（保存到 ~/opencv-build-arm 目录）</span><br><span class="line"># 1. 指定目标平台架构（如 ARM32：arm-linux-gnueabihf；ARM64：aarch64-linux-gnu）</span><br><span class="line">set(CMAKE_SYSTEM_NAME Linux)</span><br><span class="line">set(CMAKE_SYSTEM_PROCESSOR arm)</span><br><span class="line"></span><br><span class="line"># 2. 指定交叉编译器路径（替换为你的工具链实际路径）</span><br><span class="line">set(TOOLCHAIN_PATH &quot;/home/zhiwan/t113/Tina-Linux/prebuilt/gcc/linux-x86/arm/toolchain-sunxi-musl/toolchain&quot;)  # 工具链根目录</span><br><span class="line">set(CMAKE_C_COMPILER &quot;$&#123;TOOLCHAIN_PATH&#125;/bin/arm-openwrt-linux-muslgnueabi-gcc&quot;)</span><br><span class="line">set(CMAKE_CXX_COMPILER &quot;$&#123;TOOLCHAIN_PATH&#125;/bin/arm-openwrt-linux-muslgnueabi-g++&quot;)</span><br><span class="line"></span><br><span class="line"># 3. 指定目标平台的系统库和头文件路径（工具链自带的 sysroot）</span><br><span class="line">set(CMAKE_SYSROOT &quot;$&#123;TOOLCHAIN_PATH&#125;/arm-linux-gnueabihf/sys-include&quot;)</span><br><span class="line"></span><br><span class="line"># 4. 禁止在主机上运行目标平台的可执行文件（避免编译时执行测试程序）</span><br><span class="line">set(CMAKE_CROSSCOMPILING TRUE)</span><br><span class="line">set(CMAKE_CROSSCOMPILING_EMULATOR &quot;&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 6. CMake 查找规则：优先从目标平台路径查找，再查找主机路径</span><br><span class="line">set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)  # 程序（如编译器）从主机找</span><br><span class="line">set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)   # 库文件从目标平台找</span><br><span class="line">set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)   # 头文件从目标平台找</span><br><span class="line">set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)   # 包配置从目标平台找</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -262,8 +262,8 @@
     </a>
   
   
-    <a href="/2025/10/20/newtest/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">驹迷</div>
+    <a href="/2025/10/29/opencv%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">V4L2采集的视频卡顿如何解决</div>
       <i class="icon-circle-right"></i>
     </a>
   
