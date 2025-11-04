@@ -1,5 +1,5 @@
 @echo off
-echo 正在切换到F:/myblog文件夹...
+#echo 正在切换到F:/myblog文件夹...
 cd /d F:/myblog
 
 if %errorlevel% equ 0 (
