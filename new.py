@@ -92,3 +92,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # 添加这一行确保窗口不会立即关闭
+    os.system("pause")
