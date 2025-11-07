@@ -174,6 +174,158 @@
 <p>6和7一般不会执行到，因为在各个线程里面都是死循环</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;wiringPi.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;control.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;msg_queue.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;voice_interface.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;global.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;socket_interface.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;smoke_interface.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;receive_interface.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">pthread_t</span> thread_id;						<span class="comment">//初始化(链表、临时指针、累计数、wiringPi库)</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">control</span> *control_phead = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">control</span> *pointer = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="type">ctrl_info_t</span> *ctrl_info = <span class="literal">NULL</span>;</span><br><span class="line">	ctrl_info = (<span class="type">ctrl_info_t</span> *)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(<span class="type">ctrl_info_t</span>));</span><br><span class="line">	ctrl_info-&gt;ctrl_phead = <span class="literal">NULL</span>;</span><br><span class="line">	ctrl_info-&gt;mqd = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> node_num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">wiringPiSetup</span>();</span><br><span class="line">    ctrl_info-&gt;mqd = <span class="built_in">msg_queue_create</span>();	<span class="comment">//获取消息队列描述符</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(ctrl_info-&gt;mqd == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;msg_queue_create failed \n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将各个线程都放入链表中</span></span><br><span class="line">    ctrl_info-&gt;ctrl_phead = <span class="built_in">add_voice_to_ctrl_list</span>(ctrl_info-&gt;ctrl_phead);</span><br><span class="line">    ctrl_info-&gt;ctrl_phead = <span class="built_in">add_tcpsocket_to_ctrl_list</span>(ctrl_info-&gt;ctrl_phead);</span><br><span class="line">    ctrl_info-&gt;ctrl_phead = <span class="built_in">add_smoke_to_ctrl_list</span>(ctrl_info-&gt;ctrl_phead);</span><br><span class="line">    ctrl_info-&gt;ctrl_phead = <span class="built_in">add_receive_to_ctrl_list</span>(ctrl_info-&gt;ctrl_phead);</span><br><span class="line">	</span><br><span class="line">    pointer = ctrl_info-&gt;ctrl_phead;		<span class="comment">//将临时指针指向头节点</span></span><br><span class="line">    <span class="comment">//遍历链表，初始化各个线程并且统计链表节点个数</span></span><br><span class="line">    <span class="keyword">while</span>(pointer != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(pointer-&gt;init != <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            pointer-&gt;<span class="built_in">init</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        pointer = pointer-&gt;next;</span><br><span class="line">        node_num ++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">	<span class="comment">//为线程ID申请内存空间</span></span><br><span class="line">    <span class="type">pthread_t</span> *tid = <span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(<span class="type">int</span>)*node_num);</span><br><span class="line"></span><br><span class="line">    pointer = ctrl_info-&gt;ctrl_phead;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//遍历链表，创建各个线程</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;node_num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(pointer-&gt;get != <span class="literal">NULL</span>)</span><br><span class="line">        <span class="built_in">pthread_create</span>(&amp;tid[i],<span class="literal">NULL</span>,(<span class="type">void</span>*)pointer-&gt;get,(<span class="type">void</span>*)ctrl_info);</span><br><span class="line">        pointer = pointer-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//等待线程结束时回收资源</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;node_num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">pthread_join</span>(tid[i],<span class="literal">NULL</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//全部线程结束后释放所有资源</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;node_num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(pointer-&gt;<span class="keyword">final</span> != <span class="literal">NULL</span>)</span><br><span class="line">            pointer-&gt;<span class="built_in">final</span>();</span><br><span class="line">        pointer = pointer-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//销毁消息队列的资源</span></span><br><span class="line">    <span class="built_in">msg_queue_final</span>(ctrl_info-&gt;mqd);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>人脸识别代码(C语言调用python函数并接收返回值)</p>
+<p>1、初始化：python环境、路径、模块初始化</p>
+<p>2、结束：释放所有引用的Python对象</p>
+<p>3、人脸识别</p>
+<p>​	3.1将本地的人脸照片上传阿里云OCR</p>
+<p>​	3.2导入face.py模块</p>
+<p>​	3.3获取alibabacloud_face函数对象</p>
+<p>​	3.4调用alibabacloud_face函数并获取返回值</p>
+<p>​	3.5解析获取alibabacloud_face函数的返回值，转行为C语言格式</p>
+<p>​	3.6最后释放所有python资源并返回比对的结果数据</p>
+<pre><code>//face.c
+#include &lt;Python.h&gt;
+#include &lt;stdio.h&gt;
+
+#include &quot;face.h&quot;
+
+#define WEGET_CMD &quot;wget http://192.168.1.6:8080/?action=snapshot -O /tmp/SearchFace.jpg&quot;
+#define SEARCHFACE_FILE &quot;/tmp/SearchFace.jpg&quot;
+
+void face_initialize(void)
+ &#123;
+    Py_Initialize();
+    // 将当前路径添加到sys.path中
+    PyObject *sys = PyImport_ImportModule(&quot;sys&quot;);
+    PyObject *path = PyObject_GetAttrString(sys, &quot;path&quot;);
+    PyList_Append(path, PyUnicode_FromString(&quot;.&quot;));
+ &#125;
+
+void face_final(void)
+ &#123;
+    //释放所有引用的Python对象
+    Py_Finalize();
+ &#125;
+
+double face_category(void)
+ &#123;
+    double result = 0.0;
+    system(WEGET_CMD);			//将本地的人脸照片上传阿里云OCR
+
+    if(access(SEARCHFACE_FILE,F_OK) != 0)
+    &#123;
+        return result;
+    &#125;
+
+    PyObject *pModule = PyImport_ImportModule(&quot;face&quot;);//导入face.py模块
+    if (!pModule)
+    &#123;
+        PyErr_Print();
+        printf(&quot;Error: failed to load face.py\n&quot;);
+        goto FAILED_MODULE;
+    &#125;
+    
+    //获取alibabacloud_face函数对象
+    PyObject *pFunc = PyObject_GetAttrString(pModule, &quot;alibaba_face&quot;);
+    if (!pFunc)
+    &#123;
+        PyErr_Print();
+        printf(&quot;Error: failed to load alibaba_face\n&quot;);
+        goto FAILED_FUNC;
+    &#125;
+
+    PyObject *pValue = PyObject_CallObject(pFunc, NULL);//调用alibabacloud_face函数并获取返回值
+    if (!pValue)
+    &#123;
+        PyErr_Print();
+        printf(&quot;Error: function call failed\n&quot;);
+        goto FAILED_VALUE;
+    &#125;
+    if  (!PyArg_Parse(pValue, &quot;d&quot;, &amp;result))//解析获取alibabacloud_face函数的返回值，转行为C语言格式
+    &#123;
+        PyErr_Print();
+        printf(&quot;Error: parse failed&quot;);
+        goto FAILED_RESULT;
+    &#125;
+
+    printf(&quot;result = %0.2lf\n&quot;,result);
+    FAILED_RESULT:
+        Py_DECREF(pValue);
+    FAILED_VALUE:
+        Py_DECREF(pFunc);
+    FAILED_FUNC:
+        Py_DECREF(pModule);
+    FAILED_MODULE:
+
+        return result;
+
+&#125;
+</code></pre>
+<p>人脸识别face.py</p>
+<p>事先需引入依赖包，在阿里云创建AccessKey 并配置环境变量</p>
+<p>并且创建并从环境变量中读取AccessKey ID和AccessKey Secret</p>
+<p>1、读取本地的人脸照片</p>
+<p>2、然后找到阿里云的事先存放人脸照片的地址</p>
+<pre><code># 引入依赖包
+# pip install alibabacloud_facebody20191230
+# face.py
+import os
+import io
+from urllib.request import urlopen
+from alibabacloud_facebody20191230.client import Client
+from alibabacloud_facebody20191230.models import SearchFaceAdvanceRequest
+from alibabacloud_tea_openapi.models import Config
+from alibabacloud_tea_util.models import RuntimeOptions
+config = Config(
+    # 创建AccessKey ID和AccessKey Secret，请参考https://help.aliyun.com/document_detail/175144.html。
+    # 如果您用的是RAM用户的AccessKey，还需要为RAM用户授予权限AliyunVIAPIFullAccess，请参考https://help.aliyun.com/document_detail/145025.html。
+    # 从环境变量读取配置的AccessKey ID和AccessKey Secret。运行代码示例前必须先配置环境变量。
+    access_key_id=os.environ.get(&#39;ALIBABA_CLOUD_ACCESS_KEY_ID&#39;),
+    access_key_secret=os.environ.get(&#39;ALIBABA_CLOUD_ACCESS_KEY_SECRET&#39;),
+    # 访问的域名
+    endpoint=&#39;facebody.cn-shanghai.aliyuncs.com&#39;,
+    # 访问的域名对应的region
+    region_id=&#39;cn-shanghai&#39;
+)
+def alibaba_face():
+  search_face_request = SearchFaceAdvanceRequest()
+  #场景一：文件在本地
+  stream0 = open(r&#39;/tmp/SearchFace.jpg&#39;, &#39;rb&#39;)
+  search_face_request.image_url_object = stream0
+  #场景二：使用任意可访问的url
+  #url = &#39;https://viapi-test-bj.oss-cn-beijing.aliyuncs.com/viapi3.0domepic/facebody/SearchFace1.png&#39;
+  #img = urlopen(url).read()
+  #search_face_request.image_url_object = io.BytesIO(img)
+  search_face_request.db_name = &#39;default&#39;
+  search_face_request.limit = 5
+  #关闭流
+  #stream0.close()
+  runtime_option = RuntimeOptions()
+  try:
+    # 初始化Client
+    client = Client(config)
+    response = client.search_face_advance(search_face_request, runtime_option)
+    # 获取整体结果
+    match_list = response.body.to_map()[&#39;Data&#39;][&#39;MatchList&#39;]
+    scores = [item[&#39;Score&#39;] for item in match_list[0][&#39;FaceItems&#39;]]  
+    highest_score = max(scores)
+    value = round(highest_score, 2)
+    #print(value)
+    return value
+  except Exception as error:
+    # 获取整体报错信息
+    print(error)
+    # 获取单个字段
+    print(error.code)
+    # tips: 可通过error.__dict__查看属性名称
+    return 0.0
+
+  #关闭流
+  #stream0.close()
+if __name__ ==&quot;__main__&quot;:
+  alibaba_face()
+</code></pre>
 
       
 
