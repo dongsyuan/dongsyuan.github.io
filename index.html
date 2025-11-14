@@ -146,6 +146,70 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-HEXO框架博客自定义域名管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2025/11/14/HEXO%E6%A1%86%E6%9E%B6%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E7%AE%A1%E7%90%86/">hexo框架下自定义域名后总是莫名崩如何解决</a>
+    </h1>
+  
+
+        
+        <a href="/2025/11/14/HEXO%E6%A1%86%E6%9E%B6%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E7%AE%A1%E7%90%86/" class="archive-article-date">
+  	<time datetime="2025-11-14T02:47:30.073Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-11-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在域名解析处两个记录都修改为CNAME和.github.io,一个为@，一个为www，可以自动管理CDN IP地址</p>
+<p>CNAME 记录：将域名解析到另一个域名，然后通过另一个域名的记录解析最终的 IP 地址<br>GitHub Pages 托管在 GitHub 的服务器上，域名 *.github.io 实际是 GitHub 服务器的子域名。当通过自定义域名绑定 GitHub Pages 时：<br>GitHub Pages 的服务器使用了一个动态的 CDN（内容分发网络），因此它背后的 IP 地址可能会随时间变化。如果直接使用 A 记录 指向 GitHub 的 IP 地址，IP 地址变更后需要手动更新 DNS 配置，管理复杂且容易出错。<br>使用 CNAME 记录将自定义域名映射到 xingzhuz.github.io，GitHub 会通过xingzhuz.github.io 的解析，自动管理和更新 CDN IP 地址，确保域名解析始终指向正确的服务器，避免了手动维护 IP 地址的麻烦，提高了可靠性。<br>————————————————<br>本文参考星竹的文章<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/2303_76953932/article/details/145317970">https://blog.csdn.net/2303_76953932/article/details/145317970</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/11/14/HEXO%E6%A1%86%E6%9E%B6%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E7%AE%A1%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-智能家居项目 " class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
