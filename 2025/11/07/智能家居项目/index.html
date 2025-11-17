@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://codedongshi.top">
-  <title>东石的博客</title>
+  <title>智能家居项目详细思路整理(未完成) | 东石的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="东石的博客">
-<meta property="og:url" content="https://codedongshi.top/index.html">
+  <meta name="description" content="main函数（所有的头文件都放到最后） 事先创建好一个管理线程的链表control_list，并且将mqd和control链表再封装一个结构体ctrl_info 1、初始化(链表、临时指针、累计数、wiringPi库) 2、获取消息队列描述符 3、将各个线程都放入链表中 4、遍历链表，初始化各个线程并且统计链表节点个数 5、遍历链表，创建各个线程 6、等待线程结束时回收资源 7、全部线程结束后释放">
+<meta property="og:type" content="article">
+<meta property="og:title" content="智能家居项目详细思路整理(未完成)">
+<meta property="og:url" content="https://codedongshi.top/2025/11/07/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E9%A1%B9%E7%9B%AE/index.html">
 <meta property="og:site_name" content="东石的博客">
+<meta property="og:description" content="main函数（所有的头文件都放到最后） 事先创建好一个管理线程的链表control_list，并且将mqd和control链表再封装一个结构体ctrl_info 1、初始化(链表、临时指针、累计数、wiringPi库) 2、获取消息队列描述符 3、将各个线程都放入链表中 4、遍历链表，初始化各个线程并且统计链表节点个数 5、遍历链表，创建各个线程 6、等待线程结束时回收资源 7、全部线程结束后释放">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-07T09:33:27.875Z">
+<meta property="article:modified_time" content="2025-11-15T02:29:54.105Z">
 <meta property="article:author" content="dongshi">
 <meta name="twitter:card" content="summary">
   
@@ -144,80 +148,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-HEXO框架博客自定义域名管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-智能家居项目" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/11/14/HEXO%E6%A1%86%E6%9E%B6%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E7%AE%A1%E7%90%86/">hexo框架下自定义域名后总是莫名崩如何解决</a>
-    </h1>
-  
-
-        
-        <a href="/2025/11/14/HEXO%E6%A1%86%E6%9E%B6%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2025-11-14T02:47:30.073Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-11-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在域名解析处两个记录都修改为CNAME和.github.io,一个为@，一个为www，可以自动管理CDN IP地址</p>
-<p>CNAME 记录：将域名解析到另一个域名，然后通过另一个域名的记录解析最终的 IP 地址<br>GitHub Pages 托管在 GitHub 的服务器上，域名 *.github.io 实际是 GitHub 服务器的子域名。当通过自定义域名绑定 GitHub Pages 时：<br>GitHub Pages 的服务器使用了一个动态的 CDN（内容分发网络），因此它背后的 IP 地址可能会随时间变化。如果直接使用 A 记录 指向 GitHub 的 IP 地址，IP 地址变更后需要手动更新 DNS 配置，管理复杂且容易出错。<br>使用 CNAME 记录将自定义域名映射到 xingzhuz.github.io，GitHub 会通过xingzhuz.github.io 的解析，自动管理和更新 CDN IP 地址，确保域名解析始终指向正确的服务器，避免了手动维护 IP 地址的麻烦，提高了可靠性。<br>————————————————<br>本文参考星竹的文章<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/2303_76953932/article/details/145317970">https://blog.csdn.net/2303_76953932/article/details/145317970</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/11/14/HEXO%E6%A1%86%E6%9E%B6%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E7%AE%A1%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-智能家居项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/11/07/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E9%A1%B9%E7%9B%AE/">智能家居项目详细思路整理(未完成)</a>
+    <h1 class="article-title" itemprop="name">
+      智能家居项目详细思路整理(未完成)
     </h1>
   
 
@@ -302,6 +240,32 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://github.com/dongsyuan/dongsyuan.github.io/blob/main/README/hjj.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -309,16 +273,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/11/07/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E9%A1%B9%E7%9B%AE/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://codedongshi.top/2025/11/07/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85%E9%A1%B9%E7%9B%AE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2025/11/14/HEXO%E6%A1%86%E6%9E%B6%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E7%AE%A1%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          hexo框架下自定义域名后总是莫名崩如何解决
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/11/06/%E5%8E%9F%E7%A0%81%E5%8F%8D%E7%A0%81%E4%B8%8E%E8%A1%A5%E7%A0%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">原码反码与补码</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -338,340 +370,14 @@
 
 
 
-
   
-    <article id="post-原码反码与补码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/11/06/%E5%8E%9F%E7%A0%81%E5%8F%8D%E7%A0%81%E4%B8%8E%E8%A1%A5%E7%A0%81/">原码反码与补码</a>
-    </h1>
   
 
-        
-        <a href="/2025/11/06/%E5%8E%9F%E7%A0%81%E5%8F%8D%E7%A0%81%E4%B8%8E%E8%A1%A5%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2025-11-06T06:31:45.571Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-11-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原码就是十进制直接转换成二进制得到的数值，比如35的原码就是32+3，也就是0010 0011</p>
-<p>反码和补码都是相对原码来说的，反码就是将原码全都反过来，0变1，1变0，比如0010 0011的反码是1101 1100</p>
-<p>补码的计算方法是将反码加1，实际计算机里的数据都是以补码的形式存储的，为什么？还有，为什么补码的计算方法是这样的？</p>
-<p>补码在计算机存储的规则是，正数的补码是它本身，负数的补码是原码的反码+1，补码的最高位是符号位，0为正，1为负数，有个例外，比如1000 0000，代表的是-128，不是代表0</p>
-<p>为什么要以补码的形式存储？</p>
-<p>如果以原码的方式存储，只能进行加法，不能进行减法，因为硬件只有累加器，没有累减器，同时有累加器和累减器的话，cpu的操作就多了一步，变得复杂，原本只需要累加器，现在需要两倍的硬件成本，划不来，是否有一种表示方法，可以用相加的方式表示负数呢？这样无论加法还是减法，都可以视作是加法，11-4可以看作11+（-4），1011加1100，0111刚好就是7</p>
-<p>为什么是补码？</p>
-<p>这就是巧妙的地方，关键在于固定位数的数据是有限的，多的位数会溢出，比如1111加上0011，本来是变成  0001 0001，因为只有四位，变成了0001，循环回来变成更小的数了，假如有n位，那么总数，也可以称为模，就是2的n次方，无论是加上模，还是减去模，都是等于一个数本身，因为循环嘛，举个例子吧，1100 +（1111+0001），后面两个合在一起就是模，这样看好看点，最后还是1100，你可以算一算，记得只有四位，满了就溢出，就被丢弃了。再看，原码+反码+1就是等于模，不信你看再上两行我举的例子，因为原码+反码刚好全部位数上的数字都为1，1100和0011，加一起就是1111，再加1，就是模。</p>
-<p>我们要解决的问题是如何表示负数，也就是加上一个数等于减去另一个数，拿时钟举例子，目标是3点，当前指向1点，加上2或者减去10都可以，两者的绝对值刚好就是模，也就是原码和补码，所以，用原码和补码的计算方式是一样的，就比如1100-0011，等于1100+1101，都是等于1001，也就是9</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/11/06/%E5%8E%9F%E7%A0%81%E5%8F%8D%E7%A0%81%E4%B8%8E%E8%A1%A5%E7%A0%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-V4L2视频采集+opencv+DNN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/11/01/V4L2%E8%A7%86%E9%A2%91%E9%87%87%E9%9B%86+opencv+DNN/">V4L2采集+OpenCV+DNN人脸识别</a>
-    </h1>
   
 
-        
-        <a href="/2025/11/01/V4L2%E8%A7%86%E9%A2%91%E9%87%87%E9%9B%86+opencv+DNN/" class="archive-article-date">
-  	<time datetime="2025-11-01T12:20:12.814Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-11-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>OpenCV+DNN人脸识别</p>
-<p>v4l2进行视频采集</p>
-<p>打开设备，设置视频参数，分辨率，样式</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">v4l2_fd = ::<span class="built_in">open</span>(dev,O_RDWR);				<span class="comment">//打开设备</span></span><br><span class="line"><span class="keyword">if</span>(v4l2_fd &lt; <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;open camera failed!&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">v4l2_format</span> fmt;</span><br><span class="line"><span class="built_in">memset</span>(&amp;fmt,<span class="number">0</span>,<span class="built_in">sizeof</span>(fmt));					<span class="comment">//设置视频参数，类型、分辨率、格式</span></span><br><span class="line">fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;</span><br><span class="line">fmt.fmt.pix.width = v4l2_width;</span><br><span class="line">fmt.fmt.pix.height =v4l2_height;</span><br><span class="line">fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_MJPEG;</span><br><span class="line">fmt.fmt.pix.field = V4L2_FIELD_NONE;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">ioctl</span>(v4l2_fd,VIDIOC_S_FMT,&amp;fmt) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot; set fmt failed !&quot;</span>;</span><br><span class="line">    ::<span class="built_in">close</span>(v4l2_fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>申请缓冲区，查询缓冲区是否符合要求</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">v4l2_requestbuffers</span> req;					<span class="comment">//申请缓冲区</span></span><br><span class="line"><span class="built_in">memset</span>(&amp;req,<span class="number">0</span>,<span class="built_in">sizeof</span>(req));</span><br><span class="line">req.count = <span class="number">2</span>;</span><br><span class="line">req.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;</span><br><span class="line">req.memory = V4L2_MEMORY_MMAP;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">ioctl</span>(v4l2_fd,VIDIOC_REQBUFS,&amp;req) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;request buffer failed!&quot;</span>;</span><br><span class="line">    ::<span class="built_in">close</span>(v4l2_fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">v4l2_buffer</span> buf;							<span class="comment">//查询缓冲区</span></span><br><span class="line"><span class="built_in">memset</span>(&amp;buf,<span class="number">0</span>,<span class="built_in">sizeof</span>(buf));</span><br><span class="line">buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;</span><br><span class="line">buf.memory = V4L2_MEMORY_MMAP;</span><br><span class="line">buf.index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">ioctl</span>(v4l2_fd,VIDIOC_QUERYBUF,&amp;buf))&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;search buffer failed !&quot;</span>;</span><br><span class="line">    ::<span class="built_in">close</span>(v4l2_fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>内存映射，将缓冲区放入工作队列，等待用户采集</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">v4l2_buffer_length = buf.length;					<span class="comment">//内存映射</span></span><br><span class="line">v4l2_buffer = <span class="built_in">mmap</span>(<span class="literal">NULL</span>,buf.length,PROT_READ | PROT_WRITE,MAP_SHARED,v4l2_fd,buf.m.offset);</span><br><span class="line"><span class="keyword">if</span>(v4l2_buffer == MAP_FAILED)&#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;mmap failed !&quot;</span>;</span><br><span class="line">    ::<span class="built_in">close</span>(v4l2_fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">ioctl</span>(v4l2_fd,VIDIOC_QBUF,&amp;buf) &lt; <span class="number">0</span>)&#123;			<span class="comment">//将缓冲区放入工作队列</span></span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;enter queue failed!&quot;</span>;</span><br><span class="line">    ::<span class="built_in">close</span>(v4l2_fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>获取一帧视频</p>
-<p>从缓冲区取出视频数据</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">v4l2_buffer</span> buf;							<span class="comment">//从缓冲区取出视频数据</span></span><br><span class="line"> <span class="built_in">memset</span>(&amp;buf, <span class="number">0</span>, <span class="built_in">sizeof</span>(buf));</span><br><span class="line"> buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;</span><br><span class="line"> buf.memory = V4L2_MEMORY_MMAP;</span><br><span class="line"> buf.index = <span class="number">0</span>;</span><br><span class="line"> <span class="keyword">if</span> (<span class="built_in">ioctl</span>(v4l2_fd, VIDIOC_DQBUF, &amp;buf) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">     <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;DQBUF失败&quot;</span>;</span><br><span class="line">     <span class="keyword">return</span> <span class="built_in">QImage</span>();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<p>MJPEG解码，将MJPEG格式的图片转为QIMAG格式</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MJPEG解码</span></span><br><span class="line">QBuffer qbuf;</span><br><span class="line">qbuf.<span class="built_in">setData</span>((<span class="type">const</span> <span class="type">char</span>*)v4l2_buffer, buf.bytesused);</span><br><span class="line">qbuf.<span class="built_in">open</span>(QIODevice::ReadOnly);</span><br><span class="line"><span class="function">QImageReader <span class="title">reader</span><span class="params">(&amp;qbuf, <span class="string">&quot;JPG&quot;</span>)</span></span>;</span><br><span class="line">QImage img = reader.<span class="built_in">read</span>();</span><br><span class="line"><span class="keyword">if</span> (img.<span class="built_in">isNull</span>()) &#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;MJPEG解码失败&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>缓冲区重新入队</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">ioctl</span>(v4l2_fd, VIDIOC_QBUF, &amp;buf) &lt; <span class="number">0</span>) &#123;		<span class="comment">//缓冲区重新入队</span></span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;QBUF失败&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>持续获取多帧视频，并且对视频进行一些预处理，</p>
-<p>1、缩小视频的分辨率进行加速</p>
-<p>2、彩色转变灰度图</p>
-<p>3、检测60*60以上像素的人脸</p>
-<p>4、再映射回原图</p>
-<p>5、将人脸用矩形框框住</p>
-<p>6、缩放显示到一个Qlabel标签上</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">int</span> detect_counter = <span class="number">0</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> detect_interval = <span class="number">10</span>; <span class="comment">// 每10帧检测一次人脸</span></span><br><span class="line">QElapsedTimer timerDebug;</span><br><span class="line">timerDebug.<span class="built_in">start</span>();</span><br><span class="line">QImage img = <span class="built_in">getV4L2Frame</span>(); <span class="comment">// 获取摄像头帧</span></span><br><span class="line"><span class="keyword">if</span> (img.<span class="built_in">isNull</span>()) &#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;未获取到V4L2帧&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">qint64 t1 = timerDebug.<span class="built_in">elapsed</span>();</span><br><span class="line"><span class="type">bool</span> doDetect = (++detect_counter % detect_interval == <span class="number">0</span>); <span class="comment">// 控制检测频率</span></span><br><span class="line"><span class="keyword">if</span> (doDetect &amp;&amp; !face_cascade.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">    QImage smallImg = img.<span class="built_in">scaled</span>(<span class="number">320</span>, <span class="number">240</span>, Qt::KeepAspectRatio); <span class="comment">// 缩小加速</span></span><br><span class="line">    <span class="function">cv::Mat <span class="title">mat_small</span><span class="params">(smallImg.height(), smallImg.width(), CV_8UC4, (<span class="type">void</span>*)smallImg.bits(), smallImg.bytesPerLine())</span></span>;</span><br><span class="line">    cv::Mat mat_gray;</span><br><span class="line">    cv::<span class="built_in">cvtColor</span>(mat_small, mat_gray, cv::COLOR_BGRA2GRAY); <span class="comment">// 转灰度</span></span><br><span class="line">    faces.<span class="built_in">clear</span>();</span><br><span class="line">    face_cascade.<span class="built_in">detectMultiScale</span>(mat_gray, faces, <span class="number">1.2</span>, <span class="number">5</span>, <span class="number">0</span>, cv::<span class="built_in">Size</span>(<span class="number">60</span>, <span class="number">60</span>)); <span class="comment">// 检测人脸</span></span><br><span class="line">    <span class="type">double</span> scaleX = <span class="built_in">double</span>(img.<span class="built_in">width</span>()) / smallImg.<span class="built_in">width</span>();</span><br><span class="line">    <span class="type">double</span> scaleY = <span class="built_in">double</span>(img.<span class="built_in">height</span>()) / smallImg.<span class="built_in">height</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;face : faces) &#123;</span><br><span class="line">        face.x = <span class="built_in">int</span>(face.x * scaleX); <span class="comment">// 坐标映射回原图</span></span><br><span class="line">        face.y = <span class="built_in">int</span>(face.y * scaleY);</span><br><span class="line">        face.width = <span class="built_in">int</span>(face.width * scaleX);</span><br><span class="line">        face.height = <span class="built_in">int</span>(face.height * scaleY);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;检测到人脸数量:&quot;</span> &lt;&lt; faces.<span class="built_in">size</span>();</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (face_cascade.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;人脸分类器未加载成功&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">qint64 t3 = timerDebug.<span class="built_in">elapsed</span>();</span><br><span class="line"><span class="comment">// 在QImage上画人脸框</span></span><br><span class="line"><span class="function">QPainter <span class="title">painter</span><span class="params">(&amp;img)</span></span>;</span><br><span class="line">painter.<span class="built_in">setPen</span>(<span class="built_in">QPen</span>(Qt::red, <span class="number">3</span>));</span><br><span class="line"><span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;face : faces) &#123;</span><br><span class="line">    painter.<span class="built_in">drawRect</span>(face.x, face.y, face.width, face.height); <span class="comment">// 画人脸框</span></span><br><span class="line">&#125;</span><br><span class="line">painter.<span class="built_in">end</span>();</span><br><span class="line">qint64 t4 = timerDebug.<span class="built_in">elapsed</span>();</span><br><span class="line"><span class="comment">// 缩放显示到QLabel</span></span><br><span class="line"><span class="function">QSize <span class="title">targetSize</span><span class="params">(<span class="number">780</span>, <span class="number">550</span>)</span></span>;</span><br><span class="line">ui-&gt;camlab-&gt;<span class="built_in">setPixmap</span>(QPixmap::<span class="built_in">fromImage</span>(img.<span class="built_in">scaled</span>(targetSize, Qt::KeepAspectRatio))); <span class="comment">// 显示到QLabel</span></span><br><span class="line">qint64 t5 = timerDebug.<span class="built_in">elapsed</span>();</span><br></pre></td></tr></table></figure>
-
-<p>采集人脸</p>
-<p>1、采集最大的一张人脸</p>
-<p>2、裁剪缩放？</p>
-<p>3、RGB转BGR</p>
-<p>4、提取并保存特征</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (faces.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;未检测到人脸，无法采集&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (collectCount &gt;= collectTarget) &#123;</span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;已采集&quot;</span> &lt;&lt; collectTarget &lt;&lt; <span class="string">&quot;张人脸，请勿重复采集&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">auto</span> maxFace = std::<span class="built_in">max_element</span>(faces.<span class="built_in">begin</span>(), faces.<span class="built_in">end</span>(),</span><br><span class="line">    [](<span class="type">const</span> cv::Rect&amp; a, <span class="type">const</span> cv::Rect&amp; b) &#123; <span class="keyword">return</span> a.<span class="built_in">area</span>() &lt; b.<span class="built_in">area</span>(); &#125;); <span class="comment">// 取最大人脸</span></span><br><span class="line"><span class="keyword">if</span> (maxFace == faces.<span class="built_in">end</span>()) <span class="keyword">return</span>;</span><br><span class="line">QImage img = <span class="built_in">getV4L2Frame</span>();</span><br><span class="line"><span class="keyword">if</span> (img.<span class="built_in">isNull</span>()) <span class="keyword">return</span>;</span><br><span class="line"><span class="function">QRect <span class="title">qface</span><span class="params">(maxFace-&gt;x, maxFace-&gt;y, maxFace-&gt;width, maxFace-&gt;height)</span></span>;</span><br><span class="line">QImage faceImg = img.<span class="built_in">copy</span>(qface).<span class="built_in">scaled</span>(<span class="number">112</span>, <span class="number">112</span>, Qt::KeepAspectRatio).<span class="built_in">convertToFormat</span>(QImage::Format_RGB888); <span class="comment">// 裁剪缩放</span></span><br><span class="line"><span class="function">cv::Mat <span class="title">faceMat</span><span class="params">(faceImg.height(), faceImg.width(), CV_8UC3, (<span class="type">void</span>*)faceImg.bits(), faceImg.bytesPerLine())</span></span>;</span><br><span class="line">cv::<span class="built_in">cvtColor</span>(faceMat, faceMat, cv::COLOR_RGB2BGR); <span class="comment">// 转BGR</span></span><br><span class="line">cv::Mat feat = <span class="built_in">getFaceFeature</span>(faceMat); <span class="comment">// 提取特征</span></span><br><span class="line">registeredFeatures.<span class="built_in">append</span>(feat.<span class="built_in">clone</span>()); <span class="comment">// 保存特征</span></span><br><span class="line">collectCount++;</span><br><span class="line"><span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;第&quot;</span> &lt;&lt; collectCount &lt;&lt; <span class="string">&quot;次采集成功&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>获取人脸特征</p>
-<p>1、缩放到像素112*112</p>
-<p>2、对人脸进行归一化</p>
-<p>3、生成blob</p>
-<p>4、输入后前向推理</p>
-<p>5、再L2归一化</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">cv::Mat <span class="title">Widget::getFaceFeature</span><span class="params">(<span class="type">const</span> cv::Mat&amp; faceImg)</span> </span>&#123;</span><br><span class="line">    cv::Mat input;</span><br><span class="line">    cv::<span class="built_in">resize</span>(faceImg, input, cv::<span class="built_in">Size</span>(<span class="number">112</span>, <span class="number">112</span>)); <span class="comment">// 缩放到112x112</span></span><br><span class="line">    input.<span class="built_in">convertTo</span>(input, CV_32F, <span class="number">1.0</span>/<span class="number">255</span>); <span class="comment">// 归一化</span></span><br><span class="line">    cv::Mat blob = cv::dnn::<span class="built_in">blobFromImage</span>(input, <span class="number">1.0</span>, cv::<span class="built_in">Size</span>(<span class="number">112</span>,<span class="number">112</span>), cv::<span class="built_in">Scalar</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>), <span class="literal">true</span>, <span class="literal">false</span>); <span class="comment">// 生成blob</span></span><br><span class="line">    faceNet.<span class="built_in">setInput</span>(blob); <span class="comment">// 设置输入</span></span><br><span class="line">    cv::Mat feat = faceNet.forward(); <span class="comment">// 前向推理，得到特征</span></span><br><span class="line">    cv::<span class="built_in">normalize</span>(feat, feat); <span class="comment">// L2归一化</span></span><br><span class="line">    <span class="keyword">return</span> feat.<span class="built_in">clone</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对比采集的人脸和检测到的人脸</p>
-<p>1、检查是否已经采集三次人脸</p>
-<p>2、取最大的人脸裁剪缩放</p>
-<p>3、RGB转BGR</p>
-<p>4、提取特征，计算余弦相似度</p>
-<p>5、设定阈值0.5，大于阈值认定同一人</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">if (collectCount &lt; collectTarget) &#123;</span><br><span class="line">    qDebug() &lt;&lt; &quot;请先采集&quot; &lt;&lt; collectTarget &lt;&lt; &quot;张人脸&quot;;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">if (faces.empty()) &#123;</span><br><span class="line">    qDebug() &lt;&lt; &quot;未检测到人脸，无法比对&quot;;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line">auto maxFace = std::max_element(faces.begin(), faces.end(),</span><br><span class="line">    [](const cv::Rect&amp; a, const cv::Rect&amp; b) &#123; return a.area() &lt; b.area(); &#125;); // 取最大人脸</span><br><span class="line">if (maxFace == faces.end()) return;</span><br><span class="line">QImage img = getV4L2Frame();</span><br><span class="line">if (img.isNull()) return;</span><br><span class="line">QRect qface(maxFace-&gt;x, maxFace-&gt;y, maxFace-&gt;width, maxFace-&gt;height);</span><br><span class="line">QImage faceImg = img.copy(qface).scaled(112, 112, Qt::KeepAspectRatio).convertToFormat(QImage::Format_RGB888); // 裁剪缩放</span><br><span class="line">cv::Mat faceMat(faceImg.height(), faceImg.width(), CV_8UC3, (void*)faceImg.bits(), faceImg.bytesPerLine());</span><br><span class="line">cv::cvtColor(faceMat, faceMat, cv::COLOR_RGB2BGR); // 转BGR</span><br><span class="line">cv::Mat feat = getFaceFeature(faceMat); // 提取特征</span><br><span class="line">double maxSim = -1;</span><br><span class="line">for (const auto&amp; regFeat : registeredFeatures) &#123;</span><br><span class="line">    double sim = feat.dot(regFeat); // 计算余弦相似度</span><br><span class="line">    if (sim &gt; maxSim) maxSim = sim;</span><br><span class="line">&#125;</span><br><span class="line">qDebug() &lt;&lt; &quot;最大相似度:&quot; &lt;&lt; maxSim;</span><br><span class="line">if (maxSim &gt; 0.5) qDebug() &lt;&lt; &quot;比对结果：同一人&quot;;</span><br><span class="line">else qDebug() &lt;&lt; &quot;比对结果：不同人&quot;;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/11/01/V4L2%E8%A7%86%E9%A2%91%E9%87%87%E9%9B%86+opencv+DNN/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-opencv+dnn人脸识别移植流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/10/31/opencv+dnn%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E7%A7%BB%E6%A4%8D%E6%B5%81%E7%A8%8B/">opencv+dnn人脸识别移植流程</a>
-    </h1>
   
 
-        
-        <a href="/2025/10/31/opencv+dnn%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E7%A7%BB%E6%A4%8D%E6%B5%81%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2025-10-31T13:37:09.771Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-10-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、确定交叉编译工具链，进入Qt工具的选项，在编译器中找到T113的gcc(交叉编译工具链）&#x2F;home&#x2F;zhiwan&#x2F;t113&#x2F;Tina-Linux&#x2F;prebuilt&#x2F;gcc&#x2F;linux-x86&#x2F;arm&#x2F;toolchain-sunxi-musl&#x2F;toolchain&#x2F;bin&#x2F;arm-openwrt-linux-muslgnueabi-gcc。</p>
-<p>2、下载OpenCV源码及拓展库并解压，我用的是opencv4.12.0的，进入源码目录后新建build文件夹；</p>
-<p>​	编写.cmake文件，在其中放入gcc路径及其他相关内容；</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#.cmake文件</span><br><span class="line"># arm-toolchain.cmake（保存到 ~/opencv-build-arm 目录）</span><br><span class="line"># 1. 指定目标平台架构（如 ARM32：arm-linux-gnueabihf；ARM64：aarch64-linux-gnu）</span><br><span class="line">set(CMAKE_SYSTEM_NAME Linux)</span><br><span class="line">set(CMAKE_SYSTEM_PROCESSOR arm)</span><br><span class="line"></span><br><span class="line"># 2. 指定交叉编译器路径（替换为你的工具链实际路径）</span><br><span class="line">set(TOOLCHAIN_PATH &quot;/home/zhiwan/t113/Tina-Linux/prebuilt/gcc/linux-x86/arm/toolchain-sunxi-musl/toolchain&quot;)  # 工具链根目录</span><br><span class="line">set(CMAKE_C_COMPILER &quot;$&#123;TOOLCHAIN_PATH&#125;/bin/arm-openwrt-linux-muslgnueabi-gcc&quot;)</span><br><span class="line">set(CMAKE_CXX_COMPILER &quot;$&#123;TOOLCHAIN_PATH&#125;/bin/arm-openwrt-linux-muslgnueabi-g++&quot;)</span><br><span class="line"></span><br><span class="line"># 3. 指定目标平台的系统库和头文件路径（工具链自带的 sysroot）</span><br><span class="line">set(CMAKE_SYSROOT &quot;$&#123;TOOLCHAIN_PATH&#125;/arm-linux-gnueabihf/sys-include&quot;)</span><br><span class="line"></span><br><span class="line"># 4. 禁止在主机上运行目标平台的可执行文件（避免编译时执行测试程序）</span><br><span class="line">set(CMAKE_CROSSCOMPILING TRUE)</span><br><span class="line">set(CMAKE_CROSSCOMPILING_EMULATOR &quot;&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 6. CMake 查找规则：优先从目标平台路径查找，再查找主机路径</span><br><span class="line">set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)  # 程序（如编译器）从主机找</span><br><span class="line">set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)   # 库文件从目标平台找</span><br><span class="line">set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)   # 头文件从目标平台找</span><br><span class="line">set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)   # 包配置从目标平台找</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>​	然后执行 cmake +opencv拓展库路径 + 安装路径 + -D各种库配置 + 源码目录 。(类似下方代码)</p>
-<p><strong>特别提醒：在命令行操作最好用单行操作！！！不然用 \ 换行很容易出错！</strong>(如果需要调格式自己调一下)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DCMAKE_TOOLCHAIN_FILE=/home/zhiwan/opencv_4.12.0/opencv-4.12.0/arm-toolchain.cmake -DCMAKE_INSTALL_PREFIX=/home/zhiwan/opencv_4.12.0/__INSTALL_opencv_4.12.0 -DOPENCV_EXTRA_MODULES_PATH=/home/zhiwan/opencv_4.12.0/opencv_contrib-4.12.0/modules -DBUILD_SHARED_LIBS=ON -DBUILD_PROTOBUF=ON -DBUILD_opencv_dnn=ON -DOPENCV_DNN_ONNX=ON -DWITH_PROTOBUF=ON -DOPENCV_GENERATE_PKGCONFIG=YES -DPROTOBUF_UPDATE_FILES=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DWITH_CUDA=OFF -DWITH_OPENMP=OFF -DWITH_JPEG=ON -DCMAKE_CXX_STANDARD=11  -DWITH_PNG=ON -DOPENCV_GENERATE_PKGCONFIG=YES -Dprotobuf_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Release ..</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">别用这个，这个只是方便添加和查看而已的</span></span><br><span class="line">cmake </span><br><span class="line">-DCMAKE_TOOLCHAIN_FILE=/home/zhiwan/opencv_4.12.0/opencv-4.12.0/arm-toolchain.cmake </span><br><span class="line">-DCMAKE_INSTALL_PREFIX=/home/zhiwan/opencv_4.12.0/__INSTALL_opencv_4.12.0 </span><br><span class="line">-DOPENCV_EXTRA_MODULES_PATH=/home/zhiwan/opencv_4.12.0/opencv_contrib-4.12.0/modules </span><br><span class="line">-DBUILD_SHARED_LIBS=ON </span><br><span class="line">-DBUILD_PROTOBUF=ON</span><br><span class="line">-DBUILD_opencv_dnn=ON </span><br><span class="line">-DOPENCV_DNN_ONNX=ON </span><br><span class="line">-DWITH_PROTOBUF=OFF </span><br><span class="line">-DPROTOBUF_UPDATE_FILES=OFF </span><br><span class="line">-DBUILD_EXAMPLES=OFF </span><br><span class="line">-DBUILD_TESTS=OFF </span><br><span class="line">-DBUILD_PERF_TESTS=OFF </span><br><span class="line">-DWITH_CUDA=OFF </span><br><span class="line">-DWITH_OPENMP=OFF </span><br><span class="line">-DWITH_JPEG=ON </span><br><span class="line">-DCMAKE_CXX_STANDARD=11  </span><br><span class="line">-DWITH_PNG=ON </span><br><span class="line">-Dprotobuf_BUILD_TESTS=OFF </span><br><span class="line">-DCMAKE_BUILD_TYPE=Release </span><br><span class="line">..</span><br></pre></td></tr></table></figure>
-
-<p>3、执行 make -j8 或 make -j4 （多线程编译，加快编译速度）。</p>
-<p>4、执行 make install （安装编译好的文件）。</p>
-<p>5、最后还需要将运行所需要的编译好的动态库（有.so的）放到板子上</p>
-<p>如果需要用DNN模块的，make的时候遇到错误error: call to non-constexpr function ‘google::protobuf::internal::WrappedMutex::WrappedMutex()的，需要</p>
-<p>将opencv-4.12.0\3rdparty\protobuf\src\google\protobuf\stubs\mutex.h(改为你放源码的路径)里的constexpr WrappedMutex() {}删除，如图，<img src="/2025/10/31/opencv+dnn%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E7%A7%BB%E6%A4%8D%E6%B5%81%E7%A8%8B/T113笔记\上官志玩派opencv移植流程\1093307-20240705174122433-19096784.png" alt="img"></p>
-<p>这样错误就被修复了，错误原因是gcc版本太低</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/10/31/opencv+dnn%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E7%A7%BB%E6%A4%8D%E6%B5%81%E7%A8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-opencv卡顿问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/10/29/opencv%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">V4L2采集的视频卡顿如何解决</a>
-    </h1>
-  
-
-        
-        <a href="/2025/10/29/opencv%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2025-10-29T06:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-10-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用V4L2+Haar级联分类器人脸检测+opencv-DNN人脸识别方案</p>
-<p>采集视频流之后，再qt界面显示视频，发现画面比较卡顿，采用增加缓冲区的方法，不行</p>
-<p>最后是通过降低视频的分辨率来实现实时视频的流畅显示，同时延迟也没有提升</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/10/29/opencv%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -694,8 +400,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
