@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://codedongshi.top">
-  <title>HEXO框架下个性化和定制化 | 东石的博客</title>
+  <title>HEXO框架yilia主题下个性化和定制化 | 东石的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="修改右侧文章的背景颜色，路径：themes\yilia\source\main.0cf68a.css，修改下面代码的background后面的字段，此网站可以看颜色和十六进制代码的对应关系RGB颜色值与十六进制颜色码转换 | 颜色选择器—LZL在线工具 1.article&#123;margin:30px;position:relative;border:1px solid #fff;border">
+  <meta name="description" content="因为yilia已经不再维护，所以以下都是我在尝试搭建自己的个人博客的时候尝试过的，可放心食用 1、添加图片资源(网站logo、头像、左侧背景图) ​	1.1在路径F:&#x2F;myblog&#x2F;source&#x2F;image，也就是根目录下的source下建一个文件夹image，头像就可以在&#x2F;themes&#x2F;yilia&#x2F;_config.yml里的avatar">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEXO框架下个性化和定制化">
+<meta property="og:title" content="HEXO框架yilia主题下个性化和定制化">
 <meta property="og:url" content="https://codedongshi.top/2025/11/19/HEXO%E6%A1%86%E6%9E%B6%E4%B8%8B%E4%B8%AA%E6%80%A7%E5%8C%96%E5%92%8C%E5%AE%9A%E5%88%B6%E5%8C%96/index.html">
 <meta property="og:site_name" content="东石的博客">
-<meta property="og:description" content="修改右侧文章的背景颜色，路径：themes\yilia\source\main.0cf68a.css，修改下面代码的background后面的字段，此网站可以看颜色和十六进制代码的对应关系RGB颜色值与十六进制颜色码转换 | 颜色选择器—LZL在线工具 1.article&#123;margin:30px;position:relative;border:1px solid #fff;border">
+<meta property="og:description" content="因为yilia已经不再维护，所以以下都是我在尝试搭建自己的个人博客的时候尝试过的，可放心食用 1、添加图片资源(网站logo、头像、左侧背景图) ​	1.1在路径F:&#x2F;myblog&#x2F;source&#x2F;image，也就是根目录下的source下建一个文件夹image，头像就可以在&#x2F;themes&#x2F;yilia&#x2F;_config.yml里的avatar">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-11-19T04:08:13.018Z">
-<meta property="article:modified_time" content="2025-11-19T04:13:14.927Z">
+<meta property="article:modified_time" content="2025-11-20T03:11:06.462Z">
 <meta property="article:author" content="dongshi">
 <meta name="twitter:card" content="summary">
   
@@ -147,7 +147,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      HEXO框架下个性化和定制化
+      HEXO框架yilia主题下个性化和定制化
     </h1>
   
 
@@ -160,7 +160,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>修改右侧文章的背景颜色，路径：themes\yilia\source\main.0cf68a.css，修改下面代码的background后面的字段，此网站可以看颜色和十六进制代码的对应关系<a target="_blank" rel="noopener" href="https://www.lzltool.com/colorPicker">RGB颜色值与十六进制颜色码转换 | 颜色选择器—LZL在线工具</a></p>
+        <p>因为yilia已经不再维护，所以以下都是我在尝试搭建自己的个人博客的时候尝试过的，可放心食用</p>
+<p>1、添加图片资源(网站logo、头像、左侧背景图)</p>
+<p>​	1.1在路径F:&#x2F;myblog&#x2F;source&#x2F;image，也就是根目录下的source下建一个文件夹image，头像就可以在&#x2F;themes&#x2F;yilia&#x2F;_config.yml里的avatar: &#x2F;image&#x2F;BEYOND.jpg（冒号后面有个空格，然后就是&#x2F;image&#x2F;你的图片路径</p>
+<p>​	1.2添加左侧背景图是在路径：<code>themes/yilia/source/main.0cf68a.css</code>中修改，比如我的路径，图片路径那里就是填&#x2F;image&#x2F;你的图片.jpg</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">.left-col&#123;</span> <span class="string">/*</span> <span class="string">background:#fff;</span> <span class="attr">*/  background:</span> <span class="string">linear-gradient(rgba(255,</span> <span class="number">255</span><span class="string">,</span> <span class="number">255</span><span class="string">,</span> <span class="number">0.5</span><span class="string">),</span> <span class="string">rgba(255,</span> <span class="number">255</span><span class="string">,</span> <span class="number">255</span><span class="string">,</span> <span class="number">0.5</span><span class="string">)),url(&#x27;填入自己的图片路径&#x27;)</span> <span class="literal">no</span><span class="string">-repeat</span> <span class="number">0</span><span class="string">%</span> <span class="number">20</span><span class="string">%/</span> <span class="string">cover;width:300px;position:fixed;opacity:1;transition:all</span> <span class="string">.2s</span> <span class="string">ease-in;height:100%;z-index:999;overflow:hidden;overflow-y:auto;margin-bottom:15px&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后还需要在路径： <code>themes/yilia/layout/_partial/left-col.ejs</code>下，删除&lt;div class&#x3D;”overlay” style&#x3D;”background:……&gt;这一行</p>
+<p>2、修改右侧文章的背景颜色，路径：themes&#x2F;yilia&#x2F;source&#x2F;main.0cf68a.css，修改下面代码的background后面的字段，此网站可以看颜色和十六进制代码的对应关系<a target="_blank" rel="noopener" href="https://www.lzltool.com/colorPicker">RGB颜色值与十六进制颜色码转换 | 颜色选择器—LZL在线工具</a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.article&#123;margin:30px;position:relative;border:1px solid #fff;border-top:1px solid #fff;border-bottom:1px solid #fff;background:#FFEBCD;transition:all .2s ease-in&#125;.article img&#123;max-width:100%&#125;</span><br></pre></td></tr></table></figure>
 
 
