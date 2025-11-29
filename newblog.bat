@@ -28,12 +28,13 @@ set "time_str=!dt:~0,4!-!dt:~4,2!-!dt:~6,2! !dt:~8,2!:!dt:~10,2!:!dt:~12,2!"
 set "temp_name=temp_%random%%random%.md"
 set "temp_file=%target_dir%\%temp_name%"
 
-:: 写入YAML格式内容
+:: 写入YAML格式内容，并在其后添加两个空行
 (
     echo ---
     echo title: 
     echo time: %time_str%
     echo ---
+    echo.
     echo.
 ) > "%temp_file%"
 
