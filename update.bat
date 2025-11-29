@@ -3,7 +3,7 @@
 cd /d F:/myblog
 
 if %errorlevel% equ 0 (
-    echo 开始执行Hexo命令...
+
     hexo c
     hexo g
     hexo d
